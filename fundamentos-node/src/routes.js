@@ -26,7 +26,7 @@ export const routes = [
 
       db.insert('tasks', task);
 
-      res.end(201);
+      res.writeHead(201).end();
     },
   },
   {
