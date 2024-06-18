@@ -14,7 +14,11 @@
   "description": "",
   "dependencies": {
     "@fastify/cookie": "^9.3.1",
-    "fastify": "^4.28.0"
+    "dotenv": "^16.4.5",
+    "fastify": "^4.28.0",
+    "knex": "^3.1.0",
+    "sqlite3": "^5.1.7",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/node": "^20.14.2",
