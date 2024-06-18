@@ -8,7 +8,12 @@ declare module 'knex/types/tables' {
       description: string;
       time: string;
       isOnDiet: boolean;
-      session_id?: string;
+      user_id: string;
+    };
+    users: {
+      id: string;
+      name: string;
+      email: string;
     };
   }
 }
