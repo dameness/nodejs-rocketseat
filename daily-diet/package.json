@@ -7,10 +7,6 @@
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/dameness/daily-diet/issues"
-  },
-  "homepage": "https://github.com/dameness/daily-diet#readme",
   "description": "",
   "dependencies": {
     "@fastify/cookie": "^9.3.1",
