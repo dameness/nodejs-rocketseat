@@ -2,14 +2,7 @@ import { FastifyReply, FastifyRequest } from 'fastify';
 import { knex } from '../database';
 
 export const checkSessionIdExists = async (
-  req: FastifyRequest & {
-    user?: {
-      id: string;
-      name: string;
-      email: string;
-      session_id?: string;
-    };
-  },
+  req: FastifyRequest,
   res: FastifyReply
 ) => {
   const { sessionId } = req.cookies;
