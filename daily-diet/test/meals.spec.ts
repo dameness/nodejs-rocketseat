@@ -155,6 +155,87 @@ describe('meals routes', () => {
       bestStreakOnDiet: 1,
     });
   });
-  // it('should be able to edit a meal', async () => {});
-  // it('should be able to delete a meal', async () => {});
+  it('should be able to edit a meal', async () => {
+    const userResponse = await request(app.server)
+      .post('/users')
+      .send({ name: 'name', email: 'mail@mail.com' })
+      .expect(201);
+
+    const cookies = userResponse.get('Set-Cookie');
+
+    await request(app.server)
+      .post('/meals')
+      .set('Cookie', cookies!)
+      .send({
+        name: 'test-meal',
+        isOnDiet: true,
+        time: '2022/02/01',
+      })
+      .expect(201);
+
+    const mealsResponse = await request(app.server)
+      .get('/meals')
+      .set('Cookie', cookies!)
+      .expect(200);
+
+    const { id, time: initialTime } = mealsResponse.body.meals[0];
+
+    await request(app.server)
+      .put(`/meals/${id}`)
+      .send({
+        name: 'test-meal-2',
+        isOnDiet: false,
+      })
+      .set('Cookie', cookies!)
+      .expect(204);
+
+    const singleMealResponse = await request(app.server)
+      .get(`/meals/${id}`)
+      .set('Cookie', cookies!)
+      .expect(200);
+
+    expect(singleMealResponse.body.meal).toEqual(
+      expect.objectContaining({
+        id,
+        name: 'test-meal-2',
+        isOnDiet: 0,
+        time: initialTime,
+      })
+    );
+  });
+  it('should be able to delete a meal', async () => {
+    const userResponse = await request(app.server)
+      .post('/users')
+      .send({ name: 'name', email: 'mail@mail.com' })
+      .expect(201);
+
+    const cookies = userResponse.get('Set-Cookie');
+
+    await request(app.server)
+      .post('/meals')
+      .set('Cookie', cookies!)
+      .send({
+        name: 'test-meal',
+        isOnDiet: true,
+        time: '2022/02/01',
+      })
+      .expect(201);
+
+    const mealsResponse = await request(app.server)
+      .get('/meals')
+      .set('Cookie', cookies!)
+      .expect(200);
+
+    const { id } = mealsResponse.body.meals[0];
+
+    await request(app.server)
+      .delete(`/meals/${id}`)
+      .set('Cookie', cookies!)
+      .expect(204);
+
+    const singleMealResponse = await request(app.server)
+      .get(`/meals/${id}`)
+      .set('Cookie', cookies!)
+      .expect(404);
+  });
 });
