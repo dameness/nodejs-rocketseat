@@ -1,7 +1,8 @@
 import { z } from 'zod';
 
 import { FastifyReply, FastifyRequest } from 'fastify';
-import { registerUseCase } from '@/services/users/register';
+import { RegisterUseCase } from '@/services/users/register';
+import { PrismaUsersRepository } from '@/repositories/prisma/prisma-users-repository';
 
 export const register = async (req: FastifyRequest, res: FastifyReply) => {
   const registerBodySchema = z.object({
@@ -12,8 +13,11 @@ export const register = async (req: FastifyRequest, res: FastifyReply) => {
 
   const { name, email, password } = registerBodySchema.parse(req.body);
 
+  const usersRepository = new PrismaUsersRepository(); // inversão de dependências!
+  const registerUseCase = new RegisterUseCase(usersRepository);
+
   try {
-    await registerUseCase({ name, email, password });
+    await registerUseCase.execute({ name, email, password });
   } catch (err) {
     return res.status(409).send();
   }
