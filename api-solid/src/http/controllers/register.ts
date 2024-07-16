@@ -1,9 +1,8 @@
 import { z } from 'zod';
 
 import { FastifyReply, FastifyRequest } from 'fastify';
-import { RegisterUseCase } from '@/services/users/register';
-import { PrismaUsersRepository } from '@/repositories/prisma/prisma-users-repository';
 import { UserAlreadyExistsError } from '@/services/errors/user-already-exists-error';
+import { makeRegisterUseCase } from '@/services/factories/make-register-use-case';
 
 export const register = async (req: FastifyRequest, res: FastifyReply) => {
   const registerBodySchema = z.object({
@@ -14,8 +13,7 @@ export const register = async (req: FastifyRequest, res: FastifyReply) => {
 
   const { name, email, password } = registerBodySchema.parse(req.body);
 
-  const usersRepository = new PrismaUsersRepository(); // inversão de dependências!
-  const registerUseCase = new RegisterUseCase(usersRepository);
+  const registerUseCase = makeRegisterUseCase();
 
   try {
     await registerUseCase.execute({ name, email, password });
