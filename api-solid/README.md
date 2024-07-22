@@ -7,7 +7,7 @@ Aplicativo similar ao GymPass
 Deve ser possível...
 
 - [x] cadastrar-se;
-- [ ] autenticar-se;
+- [x] autenticar-se;
 - [ ] obter o perfil de um usuário logado;
 - [ ] obter o número de check-ins realizados pelo usuário logado;
 - [ ] que o usuário obtenha seu histórico de check-ins;
