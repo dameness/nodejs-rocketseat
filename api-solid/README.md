@@ -8,19 +8,19 @@ Deve ser possível...
 
 - [x] cadastrar-se;
 - [x] autenticar-se;
-- [ ] obter o perfil de um usuário logado;
+- [x] obter o perfil de um usuário logado;
 - [ ] obter o número de check-ins realizados pelo usuário logado;
 - [ ] que o usuário obtenha seu histórico de check-ins;
 - [ ] que o usuário busque academias próximas;
 - [ ] que o uuário busque academias pelo nome;
-- [ ] que o usuário realize check-in em uma academia;
+- [x] que o usuário realize check-in em uma academia;
 - [ ] validar o check-in de um usuário;
 - [ ] cadastrar uma academia;
 
 ## RNs (Regras de negócio)
 
 - [x] O usuário não deve poder se cadastrar com um e-mail duplicado;
-- [ ] O usuário não pode fazer 2 check-ins no mesmo dia;
+- [x] O usuário não pode fazer 2 check-ins no mesmo dia;
 - [ ] O usuário não pode fazer check-in se não estiver perto (100m) de uma academia;
 - [ ] O check-in só pode ser validado até 20 minutos após criado;
 - [ ] O check-in só pode ser validado por administradores;
