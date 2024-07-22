@@ -1,5 +1,6 @@
 import { UsersRepository } from '@/models/users-repository';
 import { Prisma, User } from '@prisma/client';
+import { randomUUID } from 'node:crypto';
 
 //fake database in memory to use in unit tests
 export class InMemoryUsersRepository implements UsersRepository {
@@ -7,7 +8,7 @@ export class InMemoryUsersRepository implements UsersRepository {
 
   async create(data: Prisma.UserCreateInput) {
     const user = {
-      id: 'user-1',
+      id: randomUUID(),
       name: data.name,
       email: data.email,
       password_hash: data.password_hash,
@@ -21,6 +22,11 @@ export class InMemoryUsersRepository implements UsersRepository {
 
   async findByEmail(email: string) {
     const user = this.items.find((item) => item.email === email);
+    return user || null;
+  }
+
+  async findById(id: string) {
+    const user = this.items.find((item) => item.id === id);
     return user || null;
   }
 }
