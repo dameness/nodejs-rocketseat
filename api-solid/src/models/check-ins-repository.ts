@@ -11,4 +11,5 @@ export interface CheckInsRepository {
     userId: string;
     page: number;
   }): Promise<CheckIn[]>;
+  countByUserId(userId: string): number;
 }

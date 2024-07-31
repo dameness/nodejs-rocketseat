@@ -9,8 +9,8 @@ Deve ser possível...
 - [x] cadastrar-se;
 - [x] autenticar-se;
 - [x] obter o perfil de um usuário logado;
-- [ ] obter o número de check-ins realizados pelo usuário logado;
-- [ ] que o usuário obtenha seu histórico de check-ins;
+- [x] obter o número de check-ins realizados pelo usuário logado;
+- [x] que o usuário obtenha seu histórico de check-ins;
 - [ ] que o usuário busque academias próximas;
 - [ ] que o uuário busque academias pelo nome;
 - [x] que o usuário realize check-in em uma academia;
