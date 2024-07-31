@@ -12,7 +12,7 @@ Deve ser possível...
 - [x] obter o número de check-ins realizados pelo usuário logado;
 - [x] que o usuário obtenha seu histórico de check-ins;
 - [ ] que o usuário busque academias próximas;
-- [ ] que o uuário busque academias pelo nome;
+- [x] que o uuário busque academias pelo nome;
 - [x] que o usuário realize check-in em uma academia;
 - [ ] validar o check-in de um usuário;
 - [x] cadastrar uma academia;
