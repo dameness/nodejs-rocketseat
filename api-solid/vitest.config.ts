@@ -12,6 +12,8 @@ export default defineConfig({
         singleFork: true,
       },
     },
+    environmentMatchGlobs: [['src/http/controllers/**', 'prisma']],
+    dir: 'src',
   },
   plugins: [tsconfigPaths()],
 });
