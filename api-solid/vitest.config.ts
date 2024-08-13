@@ -6,12 +6,12 @@ export default defineConfig({
     reporters: 'verbose',
 
     // This fix the conflict between tests switches and the single database
-    pool: 'forks',
-    poolOptions: {
-      forks: {
-        singleFork: true,
-      },
-    },
+    // pool: 'forks',
+    // poolOptions: {
+    //   forks: {
+    //     singleFork: true,
+    //   },
+    // },
     environmentMatchGlobs: [['src/http/controllers/**', 'prisma']],
     dir: 'src',
   },
