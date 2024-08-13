@@ -2,7 +2,7 @@ import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { app } from '@/app';
 import request from 'supertest';
 
-describe('Profile (e2e)', () => {
+describe('Get Profile (e2e)', () => {
   beforeAll(async () => {
     await app.ready();
   });
